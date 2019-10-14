@@ -6,8 +6,8 @@
   * The last parameter accepts a callback
   * The consume function should return the invocation of cb, passing a and b into cb as arguments
 */
-function consume(drinks,amount,cb) {
-  return cb(drinks,amount);
+function consume(a, b, cb) {
+  return cb(a, b);
 }
 consume("water", "1 cup",(drinks,amount) => {
   console.log(`I'm having ${amount} of ${drinks}`);
@@ -24,11 +24,18 @@ function add(x,y) {
   console.log(`sum of ${x} and ${y} is ${x + y}`);
 }
 
-function multiply(x,y)
+function multiply(x,y) {
+console.log(`Product of ${x} and ${y} is ${x * y}`);
+}
+
+function greeting(firstName,lastName){
+  console.log(`Hello ${firstName} ${lastName} nice to meet you!`);
+};
+
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
 console.log(consume(2, 2, add)); // 4
-// console.log(consume(10, 16, multiply)); // 160
-// console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+console.log(consume(10, 16, multiply)); // 160
+console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 
 // ==== Closures ==== 
@@ -36,18 +43,18 @@ console.log(consume(2, 2, add)); // 4
 // Explain in your own words why nestedfunction can access the variable internal.
 
 // Explanation: 
+// if nestedfunction is inside the function it can reach into the scope. 
 
 
+// const external = "I'm outside the function";
 
-const external = "I'm outside the function";
+// function myFunction() {
+//   console.log(external);
+//   const internal = "Hello! I'm inside myFunction!";
 
-function myFunction() {
-  console.log(external);
-  const internal = "Hello! I'm inside myFunction!";
-
-  function nestedFunction() {
-    console.log(internal);
-  };
-  nestedFunction();
-}
-myFunction();
+//   function nestedFunction() {
+//     console.log(internal);
+//   };
+//   nestedFunction();
+// }
+// myFunction();
